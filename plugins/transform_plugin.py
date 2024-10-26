@@ -9,7 +9,6 @@ def clean_data(products_df):
         'discount_percentage', 
         'rating', 
         'rating_count',
-        'user_name',
         'review_title',
         'img_link'
     )
@@ -23,11 +22,18 @@ def clean_data(products_df):
     selected_columns['rating'] = selected_columns['rating'].apply(data_formatter.clean_ratings).astype(float)
     selected_columns['rating_count'] = selected_columns['rating_count'].apply(data_formatter.clean_rating_count).astype(float)
 
-
     print(selected_columns['rating_count'].apply(type).value_counts())
     print(selected_columns['rating_count'])
+    
+    return selected_columns
 
-
+def store_csv_backup(products_df):
+    try:
+        products_df.to_csv("../data/processed/amazon_data_transformed.csv", index=True)
+        return True
+    except:
+        return False
 
 def manager(products_df):
-    clean_data(products_df=products_df)
+    result = clean_data(products_df=products_df)
+    return store_csv_backup(result)

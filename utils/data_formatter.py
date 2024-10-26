@@ -25,5 +25,5 @@ class data_formatter:
     
     def clean_rating_count(rating_count):
         if (isinstance(rating_count, str)):
-            return (rating_count.replace(',','.'))
+            return (rating_count.replace(',',''))
         return rating_count
