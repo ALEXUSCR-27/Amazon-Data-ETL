@@ -1,7 +1,9 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
-from plugins.extract_plugin import extract_pl
+from scripts.extract_plugin import extract_pl
+from scripts.transform_plugin import transform_data
+
 
 dag = DAG(
     'ETL_pipeline',
@@ -16,4 +18,10 @@ extract_task = PythonOperator(
     dag=dag
 )
 
-extract_task
+transform_task = PythonOperator(
+    task_id='transform_task',
+    python_callable=transform_data,
+    dag=dag
+)
+
+extract_task>>transform_task
