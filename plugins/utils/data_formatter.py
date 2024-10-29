@@ -1,4 +1,5 @@
 class data_formatter:
+
     def __init__(self) -> None:
         pass
     
@@ -27,3 +28,5 @@ class data_formatter:
         if (isinstance(rating_count, str)):
             return (rating_count.replace(',',''))
         return rating_count
+    
+        
