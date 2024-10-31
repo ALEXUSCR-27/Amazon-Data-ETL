@@ -1,8 +1,9 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
-from scripts.extract_plugin import extract_pl
+from scripts.extract_plugin import extract_data
 from scripts.transform_plugin import transform_data
+from scripts.load_plugin import load_data_db
 
 
 dag = DAG(
@@ -14,7 +15,7 @@ dag = DAG(
 
 extract_task = PythonOperator(
     task_id='extract_task',
-    python_callable=extract_pl,
+    python_callable=extract_data,
     dag=dag
 )
 
@@ -24,4 +25,10 @@ transform_task = PythonOperator(
     dag=dag
 )
 
-extract_task>>transform_task
+load_task = PythonOperator(
+    task_id='load_task',
+    python_callable=load_data_db,
+    dag=dag
+)
+
+extract_task>>transform_task>>load_task

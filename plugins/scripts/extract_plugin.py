@@ -1,6 +1,6 @@
 import pandas as pd
 
-def extract_pl():
+def extract_data():
     print("EXTRACTING DATA FROM CSV")
     products_df = pd.read_csv('./data/raw/amazon.csv', index_col=0)
     columns = (

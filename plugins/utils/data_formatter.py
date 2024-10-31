@@ -18,13 +18,16 @@ class data_formatter:
             return float(temp)/100
         return percentage
 
-    def clean_ratings(rating):
+    def clean_ratings(
+            rating: object
+    ):
         try:
             return float(rating)
         except:
             return '0'
     
-    def clean_rating_count(rating_count):
+    def clean_rating_count(
+            rating_count):
         if (isinstance(rating_count, str)):
             return (rating_count.replace(',',''))
         return rating_count
