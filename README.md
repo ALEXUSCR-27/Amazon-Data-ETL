@@ -12,5 +12,5 @@ This project focuses on building an ETL (Extract, Transform, Load) pipeline to p
 - Business Intelligence Visualizations: Generates dynamic charts and reports in Google Looker Studio for deeper insights, including visualizations of popular product categories, rating trends, pricing distributions, and discount analytics.
 
   <div align="center">
-    <img src="images/Amazon_products_report_page-003.jpg" alt="amazon_products_report3" width="auto" height="auto"/>
+    <img src="images/Amazon_products_report-3.png" alt="amazon_products_report3" width="auto" height="auto"/>
   </div>
