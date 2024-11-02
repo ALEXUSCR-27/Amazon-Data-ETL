@@ -1,2 +1,2 @@
-# Text-preprocessing
-This repository contain a data analysis of Amazon Product Reviews and Sales data.
+# Amazon Sales Data Engineering Project
+This project focuses on building an ETL (Extract, Transform, Load) pipeline to process and analyze Amazon product sales data from a csv file as a source. Using Apache Airflow for orchestration and automation of the operations, and Supabase as the database. This project efficiently organizes data for Business Intelligence (BI) and analysis, for this we use attributes as `Product name`, `Categories`, `Prices`, `Ratings` and `Reviews`.
