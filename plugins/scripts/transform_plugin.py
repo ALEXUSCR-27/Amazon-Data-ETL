@@ -13,6 +13,11 @@ def transform_data():
     products_df['discount_percentage'] = (products_df['discount_percentage'].apply(data_formatter.clean_percentages).astype('float'))
     products_df['rating'] = products_df['rating'].apply(data_formatter.clean_ratings).astype(float)
     products_df['rating_count'] = products_df['rating_count'].apply(data_formatter.clean_rating_count).astype(int)
+
+    products_df[['temp_cat', 'sub_category']] = products_df['category'].apply(data_formatter.clean_category).apply(pd.Series)
+    products_df.drop(columns='category', inplace=True)
+    products_df.rename(columns={'temp_cat':'category'}, inplace=True)
+
     products_df.drop_duplicates(inplace=True, subset=['product_id'])
 
     return store_csv_backup(products_df)
