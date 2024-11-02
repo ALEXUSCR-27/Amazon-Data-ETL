@@ -32,4 +32,13 @@ class data_formatter:
             return (rating_count.replace(',',''))
         return rating_count
     
+    def clean_category(category):
+        categories = category.split('|')
+        sub_category = 'N/A'
+        if (len(categories)>1):
+            sub_category = categories[-1]
+        single_category = categories[0]
+    
+        return [single_category, sub_category]
+    
         
