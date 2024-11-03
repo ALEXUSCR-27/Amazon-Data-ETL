@@ -10,8 +10,6 @@
   ![Static Badge](https://img.shields.io/badge/Google%20Looker%20Studio-white)
 
 
-
-
 </div>
 
 ## About the project
@@ -27,3 +25,26 @@ This project focuses on building an ETL (Extract, Transform, Load) pipeline to p
   <div align="center">
     <img src="images/Amazon_products_report-3.png" alt="amazon_products_report3" width="auto" height="auto"/>
   </div>
+
+## Getting started
+
+- Clone the repository
+  
+  ```sh
+  git clone https://github.com/ALEXUSCR-27/Amazon-Data-ETL.git
+  cd Amazon-Data-ETL
+  ```
+- Config your airflow credentials in `airflow-init` configuration option in the `docker-compose` file
+  ```
+  _AIRFLOW_WWW_USER_USERNAME: your_username
+  _AIRFLOW_WWW_USER_PASSWORD: your_password
+  ```
+- Build the docker container
+
+  ```
+  docker run -p 8080:8080 Dockerfile
+  docker-compose up
+  ```
+- Access to airflow
+  
+    Open browser and go to `http://localhost:8080` and sign in with your credentials.
